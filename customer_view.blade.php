@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bootstrap Site</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-  <style>
-    .bg-light {
-    background-color: #a4d0fd!important;
-}
-  </style>
+  
+  <link rel="stylesheet" href="{{ asset('css/modify.css') }}">
+  
 
   <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
- 
 </head>
 <body>
 <div class="container-fluid">
@@ -30,10 +27,10 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link1</a>
+                <a class="nav-link" href="#">Index</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link2</a>
+                <a class="nav-link" href="#">View</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Link3</a>
@@ -79,31 +76,32 @@
       <div class="row">
         <div class="col"></div>
         <div class="col">
-            <form action="{{url('/')}}/customer" method="post">
+          <h3 class="text-center text-primary">{{$title}}</h3>
+            <form action="{{$url}}" method="post">
                 @csrf
                 <div class="mb-3">
                   <label for="name" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="name" name="name" autocomplete="off">
+                  <input type="text" class="form-control" id="name" name="name" autocomplete="off" value="{{$customer->name}}">
                 </div>
 
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
-                    <textarea class="form-control" id="address" name="address" rows="3" autocomplete="off"></textarea>
+                    <input type="text" class="form-control" id="address" name="address"  autocomplete="off" value="{{$customer->address}}">
                   </div>
 
                   <div class="mb-3">
                     <label for="country" class="form-label">Country</label>
-                    <input type="text" class="form-control" id="country" name="country" autocomplete="off">
+                    <input type="text" class="form-control" id="country" name="country" autocomplete="off" value="{{$customer->country}}">
                   </div>
 
                   <div class="mb-3">
                     <label for="state" class="form-label">State</label>
-                    <input type="text" class="form-control" id="state" name="state" autocomplete="off">
+                    <input type="text" class="form-control" id="state" name="state" autocomplete="off" value="{{$customer->state}}">
                   </div>
 
                   <div class="mb-3">
                     <label for="city" class="form-label">City</label>
-                    <input type="text" class="form-control" id="city" name="city" autocomplete="off">
+                    <input type="text" class="form-control" id="city" name="city" autocomplete="off" value="{{$customer->city}}">
                   </div>
                
                 <button type="submit" class="btn btn-primary">Submit</button>
