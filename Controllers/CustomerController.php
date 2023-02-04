@@ -21,5 +21,26 @@ class CustomerController extends Controller
         $customer->state = $res['state'];
         $customer->city = $res['city'];
         $customer->save();
+
+        return redirect('/customer/viewcustomer');
+    }
+
+    public function getcustomerview()
+    {
+        $customer = Customer::all();
+        $c = compact('customer');
+        return view('getcustomerdata')->with($c);
+    }
+
+    public function deleteCustomer($id)
+    {
+        $customer = Customer::find($id);
+
+        if(!is_null($customer))
+        {
+            $customer->delete();
+        }
+        return redirect('/customer/viewcustomer');
+
     }
 }
