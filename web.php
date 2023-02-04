@@ -24,3 +24,5 @@ Route::get('/register',[RegisterController::class, 'index']);
 Route::post('/register',[RegisterController::class, 'registerUser']);
 Route::get('/customer',[CustomerController::class, 'index']);
 Route::post('/customer',[CustomerController::class, 'storeData']);
+Route::get('/customer/viewcustomer',[CustomerController::class, 'getcustomerview'])->name('customer.view');
+Route::get('/customer/delete/{id}',[CustomerController::class, 'deleteCustomer']);
