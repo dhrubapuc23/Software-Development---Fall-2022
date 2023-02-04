@@ -26,3 +26,5 @@ Route::get('/customer',[CustomerController::class, 'index']);
 Route::post('/customer',[CustomerController::class, 'storeData']);
 Route::get('/customer/viewcustomer',[CustomerController::class, 'getcustomerview'])->name('customer.view');
 Route::get('/customer/delete/{id}',[CustomerController::class, 'deleteCustomer']);
+Route::get('/customer/edit/{id}',[CustomerController::class, 'editCustomer']);
+Route::post('/customer/update/{id}',[CustomerController::class, 'update']);
